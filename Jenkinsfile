@@ -56,7 +56,7 @@ pipeline {
                     subject: subject,
                     body: body,
                     attachmentsPattern: '**/target/*.log',
-                    to: 'your-email@example.com'
+                    to: 'minunsunil@gmail.com'
                 )
             }
         }
