@@ -1,26 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Security Scan') {
+        stage("build") {
             steps {
-                echo "Performing security scan..."
-                // Integrate a security scanning tool like OWASP ZAP or Nessus
+                echo "building....."
             }
         }
-        
-        post {
-            always {
-                def subject = currentBuild.resultIsBetterOrEqualTo('SUCCESS') ? "Security Scan Status - Success" : "Security Scan Status - Failure"
-                def body = currentBuild.resultIsBetterOrEqualTo('SUCCESS') ? "Security scan passed" : "Security scan failed"
-                def logFile = "${workspace}/security_scan_logs.txt"
-
-                mail to: 'minunsunil@gmail.com',
-                     subject: subject,
-                     body: body,
-                     attachmentsPattern: logFile
+    }
+    post {
+        success {
+            script {
+                emailext(
+                    subject: "Build Status Email",
+                    body: "Build was successful",
+                    to: "minunsunil@gmail.com",
+                    attachLog: true  // Attach the build log as an attachment
+                )
             }
         }
     }
 }
+
 
 
