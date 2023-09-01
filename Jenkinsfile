@@ -16,7 +16,7 @@ pipeline {
 
                 emailext subject: subject,
                         body: body,
-                        to: "your-email@example.com",
+                        to: "minunsunil@gmail.com",
                         attachmentsPattern: "logs/$logFileName"
             }
         }
