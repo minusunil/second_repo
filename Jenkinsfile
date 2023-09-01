@@ -52,7 +52,7 @@ pipeline {
             script {
                 def subject = "Pipeline ${currentBuild.result}: ${currentBuild.fullDisplayName}"
                 def body = "The pipeline has ${currentBuild.result}."
-                emailext (
+                emailtext (
                     subject: subject,
                     body: body,
                     attachmentsPattern: '**/target/*.log',
