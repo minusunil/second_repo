@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Security Scan") {
+        stage('Security Scan') {
             steps {
                 echo "Performing security scan..."
                 // Integrate a security scanning tool like OWASP ZAP or Nessus
